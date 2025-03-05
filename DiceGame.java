@@ -8,6 +8,11 @@ import java.util.Scanner;
  * @
  */
 public final class DiceGame {
+
+    /**Constants for the maximum number. */
+    private static final int NUMBER_MAX = 6;
+    /**Constant for the minimum number.*/
+    private static final int NUMBER_MIN = 1;
     /**
      * @exception IllegalStateException
      * @see IllegalStateException
@@ -22,7 +27,7 @@ public final class DiceGame {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         // Generates a number between 1 and 6
-        int numberToGuess = random.nextInt(6) + 1;
+        int numberToGuess = random.nextInt(NUMBER_MAX) + 1;
         int numberOfGuesses = 0;
         int userGuess = 0;
         boolean correctGuess = false;
@@ -31,7 +36,7 @@ public final class DiceGame {
             try {
                 userGuess = scanner.nextInt();
                 numberOfGuesses++;
-                if (userGuess < 1 || userGuess > 6) {
+                if (userGuess < NUMBER_MIN || userGuess > NUMBER_MAX) {
                 System.out.println("Please enter a number between 1 and 6.");
                 } else if (userGuess == numberToGuess) {
                     correctGuess = true;
